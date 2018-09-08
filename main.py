@@ -8,12 +8,14 @@ import with_lock
 import with_condition
 import with_semaphore
 import with_event
+import with_timer
 
 EXAMPLES = [
     Example('Thread with lock', with_lock.OddEven),
     Example('Thread with condition', with_condition.OddEven),
     Example('Thread with semaphore', with_semaphore.OddEven),
     Example('Thread with event', with_event.OddEven),
+    Example('Thread with timer', with_timer.OddEven),
 ]
 
 EXAMPLE_BY_NAME = {
