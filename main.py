@@ -7,11 +7,13 @@ from common import Example
 import with_lock
 import with_condition
 import with_semaphore
+import with_event
 
 EXAMPLES = [
     Example('Thread with lock', with_lock.OddEven),
     Example('Thread with condition', with_condition.OddEven),
-    Example('Thread with semaphore', with_semaphore.OddEven)
+    Example('Thread with semaphore', with_semaphore.OddEven),
+    Example('Thread with event', with_event.OddEven),
 ]
 
 EXAMPLE_BY_NAME = {
