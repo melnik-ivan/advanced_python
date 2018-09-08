@@ -3,10 +3,10 @@
 
 import threading
 
-from common import is_even, BaseOddEven
+import common
 
 
-class OddEven(BaseOddEven, threading.Thread):
+class OddEven(common.BaseOddEven, threading.Thread):
     event_even = threading.Event()
     event_odd = threading.Event()
 
@@ -16,7 +16,7 @@ class OddEven(BaseOddEven, threading.Thread):
         while self.pool:
             self.event.wait()
             if self.pool:
-                if self.even == is_even(self.pool[-1]):
+                if self.even == common.is_even(self.pool[-1]):
                     print(self.message_template.format(self.pool.pop()))
             self.event_opposite.set()
 
