@@ -4,10 +4,10 @@
 import threading
 from time import sleep
 
-from common import is_even, BaseOddEven
+import common
 
 
-class OddEven(BaseOddEven, threading.Thread):
+class OddEven(common.BaseOddEven, threading.Thread):
     timer_even = None
     timer_odd = None
 
@@ -22,7 +22,7 @@ class OddEven(BaseOddEven, threading.Thread):
                 self.timer.join()
             self.set_timer_opposite(0.001)
             if self.pool:
-                if self.even == is_even(self.pool[-1]):
+                if self.even == common.is_even(self.pool[-1]):
                     print(self.message_template.format(self.pool.pop()))
 
     @property

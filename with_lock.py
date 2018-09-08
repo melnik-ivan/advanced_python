@@ -4,17 +4,17 @@
 import threading
 from time import sleep
 
-from common import is_even, BaseOddEven
+import common
 
 
-class OddEven(BaseOddEven, threading.Thread):
+class OddEven(common.BaseOddEven, threading.Thread):
     lock = threading.Lock()
 
     def run(self):
         while self.pool:
             self.lock.acquire()
             if self.pool:
-                if self.even == is_even(self.pool[-1]):
+                if self.even == common.is_even(self.pool[-1]):
                     print(self.message_template.format(self.pool.pop()))
             self.lock.release()
             sleep(0.0005)
