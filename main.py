@@ -4,10 +4,11 @@
 import sys
 
 from common import Example
-import with_lock
+
 import with_condition
-import with_semaphore
 import with_event
+import with_lock
+import with_semaphore
 import with_timer
 
 EXAMPLES = [
