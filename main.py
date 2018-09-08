@@ -6,10 +6,12 @@ import sys
 from common import Example
 import with_lock
 import with_condition
+import with_semaphore
 
 EXAMPLES = [
     Example('Thread with lock', with_lock.OddEven),
-    Example('Thread with condition', with_condition.OddEven)
+    Example('Thread with condition', with_condition.OddEven),
+    Example('Thread with semaphore', with_semaphore.OddEven)
 ]
 
 EXAMPLE_BY_NAME = {
