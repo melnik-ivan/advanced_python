@@ -8,9 +8,10 @@ from common import is_even, BaseOddEven
 
 
 class OddEven(BaseOddEven, Thread):
+    lock = Lock()
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.lock = Lock()
 
     def run(self):
         while self.pool:
