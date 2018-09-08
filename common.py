@@ -6,7 +6,7 @@ def is_even(num):
     return not num % 2
 
 
-class BaseOddEven:
+class BaseOddEven(object):
     _even_by_name = {
         'EVEN': True,
         'ODD': False,
@@ -44,7 +44,7 @@ class BaseOddEven:
         return even
 
 
-class Example:
+class Example(object):
     def __init__(self, name, worker_class):
         if len(name) > 80:
             raise ValueError('Example name must be shorter than 80 symbols')

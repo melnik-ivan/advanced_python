@@ -4,11 +4,7 @@
 import sys
 
 from common import Example
-import with_lock
-import with_condition
-import with_semaphore
-import with_event
-import with_timer
+import with_condition, with_event, with_lock, with_semaphore, with_timer
 
 EXAMPLES = [
     Example('Thread with lock', with_lock.OddEven),
