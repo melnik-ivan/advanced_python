@@ -28,7 +28,6 @@ class BaseOddEven:
     def set_name(self, value):
         self._name = value
 
-
     @property
     def message_template(self):
         if not self._message_template:
