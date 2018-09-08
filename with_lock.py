@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Advanced Python Courses. Homework #3"""
 
-from threading import Thread, Lock
+import threading
 from time import sleep
 
 from common import is_even, BaseOddEven
 
 
-class OddEven(BaseOddEven, Thread):
-    lock = Lock()
+class OddEven(BaseOddEven, threading.Thread):
+    lock = threading.Lock()
 
     def run(self):
         while self.pool:

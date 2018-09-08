@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """Advanced Python Courses. Homework #3"""
 
-from threading import Thread, Condition
+import threading
 from time import sleep
 
 from common import is_even, BaseOddEven
 
 
-class OddEven(BaseOddEven, Thread):
-    condition_odd = Condition()
-    condition_even = Condition()
+class OddEven(BaseOddEven, threading.Thread):
+    condition_odd = threading.Condition()
+    condition_even = threading.Condition()
 
     def run(self):
         with self.condition:

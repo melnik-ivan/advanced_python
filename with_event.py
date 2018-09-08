@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Advanced Python Courses. Homework #3"""
 
-from threading import Thread, Event
+import threading
 
 from common import is_even, BaseOddEven
 
 
-class OddEven(BaseOddEven, Thread):
-    event_even = Event()
-    event_odd = Event()
+class OddEven(BaseOddEven, threading.Thread):
+    event_even = threading.Event()
+    event_odd = threading.Event()
 
     def run(self):
         if not self.even:

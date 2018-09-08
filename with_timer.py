@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Advanced Python Courses. Homework #3"""
 
-from threading import Thread, Timer
+import threading
 from time import sleep
 
 from common import is_even, BaseOddEven
 
 
-class OddEven(BaseOddEven, Thread):
+class OddEven(BaseOddEven, threading.Thread):
     timer_even = None
     timer_odd = None
 
@@ -39,14 +39,14 @@ class OddEven(BaseOddEven, Thread):
 
     def set_timer(self, timeout):
         if self.even:
-            self.__class__.timer_even = Timer(timeout, lambda: None)
+            self.__class__.timer_even = threading.Timer(timeout, lambda: None)
         else:
-            self.__class__.timer_odd = Timer(timeout, lambda: None)
+            self.__class__.timer_odd = threading.Timer(timeout, lambda: None)
         self.timer.start()
 
     def set_timer_opposite(self, timeout):
         if self.even:
-            self.__class__.timer_odd = Timer(timeout, lambda: None)
+            self.__class__.timer_odd = threading.Timer(timeout, lambda: None)
         else:
-            self.__class__.timer_even = Timer(timeout, lambda: None)
+            self.__class__.timer_even = threading.Timer(timeout, lambda: None)
         self.timer_opposite.start()

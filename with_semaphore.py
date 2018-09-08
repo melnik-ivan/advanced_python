@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """Advanced Python Courses. Homework #3"""
 
-from threading import Thread, Semaphore
+import threading
 from time import sleep
 
 from common import is_even, BaseOddEven
 
 
-class OddEven(BaseOddEven, Thread):
-    semaphore_even = Semaphore(1)
-    semaphore_odd = Semaphore(0)
+class OddEven(BaseOddEven, threading.Thread):
+    semaphore_even = threading.Semaphore(1)
+    semaphore_odd = threading.Semaphore(0)
 
     def run(self):
         while self.pool:
