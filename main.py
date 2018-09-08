@@ -5,9 +5,11 @@ import sys
 
 from common import Example
 import with_lock
+import with_condition
 
 EXAMPLES = [
     Example('Thread with lock', with_lock.OddEven),
+    Example('Thread with condition', with_condition.OddEven)
 ]
 
 EXAMPLE_BY_NAME = {
@@ -15,9 +17,13 @@ EXAMPLE_BY_NAME = {
 }
 
 
-def main(*examples):
-    if not examples:
+def main(*example_names):
+    if not example_names:
         examples = EXAMPLES
+    else:
+        examples = [
+            EXAMPLE_BY_NAME[example] for example in example_names
+        ]
     for example in examples:
         example.run()
 
