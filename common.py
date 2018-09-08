@@ -14,9 +14,20 @@ class BaseOddEven:
 
     def __init__(self, pool, name, *args, **kwargs):
         super().__init__(name=name, *args, **kwargs)
+        self._name = name
         self.pool = pool
         self.even = self.even_by_name()
         self._message_template = None
+        self.first_start = self.even
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def set_name(self, value):
+        self._name = value
+
 
     @property
     def message_template(self):

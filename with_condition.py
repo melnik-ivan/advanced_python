@@ -11,10 +11,6 @@ class OddEven(BaseOddEven, Thread):
     condition_odd = Condition()
     condition_even = Condition()
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.first_start = self.even
-
     def run(self):
         with self.condition:
             self.condition.acquire()
@@ -35,12 +31,10 @@ class OddEven(BaseOddEven, Thread):
     def condition(self):
         if self.even:
             return self.condition_even
-        else:
-            return self.condition_odd
+        return self.condition_odd
 
     @property
     def condition_opposite(self):
         if not self.even:
             return self.condition_even
-        else:
-            return self.condition_odd
+        return self.condition_odd
