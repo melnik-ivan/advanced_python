@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-import urllib
 import json
+import urllib
 
 DEFAULT_CURRENCY = 'USD'
 CURRENCIES_SOURCE = 'https://api.exchangeratesapi.io/latest?base={}'.format(
