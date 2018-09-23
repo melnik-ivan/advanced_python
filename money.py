@@ -49,7 +49,16 @@ class Money(object):
         if hasattr(other, 'value') and hasattr(other, 'convert'):
             other_value = other.convert(self.currency)
             return self.__class__(self.value + other_value, self.currency)
-        return NotImplemented
+        return self.__class__(self.value + other, self.currency)
 
     def __radd__(self, other):
         return self.__class__(self.value + other, self.currency)
+
+    def __mul__(self, other):
+        if hasattr(other, 'value') and hasattr(other, 'convert'):
+            other_value = other.convert(self.currency)
+            return self.__class__(self.value * other_value, self.currency)
+        return self.__class__(self.value * other, self.currency)
+
+    def __rmul__(self, other):
+        return self.__class__(self.value * other, self.currency)
