@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 import json
-import urllib
+import urllib.request
+
+from decimal import Decimal
 
 DEFAULT_CURRENCY = 'USD'
 CURRENCIES_SOURCE = 'https://api.exchangeratesapi.io/latest?base={}'.format(
     DEFAULT_CURRENCY
 )
 RATES = {
-    'BYN': 2.08,
+    'BYN': 2.12,
 }
 
 with urllib.request.urlopen(CURRENCIES_SOURCE) as response:
@@ -35,7 +37,8 @@ class Money(object):
                                                      repr(self.currency))
 
     def __str__(self):
-        return '{} {}'.format(self.value, self.currency)
+        rounded_value = round(Decimal(self.value), 2)
+        return '{} {}'.format(rounded_value, self.currency)
 
     def convert(self, currency):
         if self.currency == currency:
@@ -62,3 +65,18 @@ class Money(object):
 
     def __rmul__(self, other):
         return self.__class__(self.value * other, self.currency)
+
+
+if __name__ == '__main__':
+    x = Money(10, "BYN")
+    y = Money(11)  # define your own default value, e.g. “USD”
+    z = Money(12.34, "EUR")
+    print(z + 3.11 * x + y * 0.8)  # result in “EUR”
+    # >>>543.21 EUR
+
+    lst = [Money(10, "BYN"), Money(11), Money(12.01, "JPY")]
+
+    s = sum(lst)
+
+    print(s)  # result in “BYN”
+    # >>>123.45 BYN
