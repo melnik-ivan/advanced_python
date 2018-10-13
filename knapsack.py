@@ -33,7 +33,7 @@ ITEMS = [
 ]
 
 
-class Knapsack:
+class Knapsack(object):
     def __init__(self, load_capacity):
         self.free_space = load_capacity
         self.items = []
