@@ -26,7 +26,8 @@ class MetaProperties(type):
                         raise NameError('Invalid property name.')
                     result[property_name][cls.PATTERNS[pattern]] = value
                     break
-        result = {k: cls.PROPERTY_FACTORY(**kwargs) for k, kwargs in result.items()}
+        result = {k: cls.PROPERTY_FACTORY(**kwargs)
+                  for k, kwargs in result.items()}
         return result
 
 
