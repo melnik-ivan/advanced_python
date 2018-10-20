@@ -10,7 +10,7 @@ def benchmark(name, log_file):
     yield
     end_time = time.perf_counter()
     result = round(Decimal(end_time - start_time), 5)
-    row = row_template.format(name = name,
-                              result = result)
+    row = row_template.format(name=name,
+                              result=result)
     with open(log_file, 'a') as log:
         log.write(row)
