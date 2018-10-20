@@ -1,2 +1,5 @@
 flake8
 pydocstyle
+cython
+./fibonacci_pyx
+./fibonacci_c
