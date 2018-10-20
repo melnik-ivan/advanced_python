@@ -1,14 +1,25 @@
 #include <Python.h>
 
-long fib(long x) {
-    if (x == 0)
+long long fib(int num) {
+    long long result = 0;
+    long long prev_results_0 = 0;
+    long long prev_results_1 = 0;
+    
+    if (num == 0) {
         return 0;
+    }
 
-    if (x == 1)
-        return 1;
-
-    if (x > 0)
-        return fib(x-1)+fib(x-2);
+    if (num > 0) {
+        for (int i = 0; i < num; i++) {
+            result = prev_results_0 + prev_results_1;
+            if (0 == result) {
+                result = 1;
+            }
+            prev_results_0 = prev_results_1;
+            prev_results_1 = result;
+        }
+        return result;
+    }
 
     return -1;
 }
