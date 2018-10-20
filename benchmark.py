@@ -1,8 +1,8 @@
 import os
 import sys
 
-from fibonacci_py.fibonacci import fibonacci_n as fibonacci_n_py
 from fibonacci import fibonacci_n as fibonacci_n_c
+from fibonacci_py.fibonacci import fibonacci_n as fibonacci_n_py
 from fibonacci_pyx import fibonacci_n as fibonacci_n_pyx
 from tools.benchmark import benchmark
 
