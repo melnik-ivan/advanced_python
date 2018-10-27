@@ -16,10 +16,13 @@ STATRS_PORT = MANAGER.dict({9555: None,
                             9558: None})
 
 
-def is_prime(number: int) -> bool:
+def is_prime(number):
+    number = int(number)
     if number < 1 or number % 1:
         raise ValueError('Invalid value for number: %s\n'
                          'Argument must be a natural number.' % number)
+    if number == 1:
+        return False
     prime = PRIME_CACHE.get(number, None)
     if prime is not None:
         return prime
